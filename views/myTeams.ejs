@@ -1,0 +1,62 @@
+<!doctype html>
+<html>
+<head>
+  <title>NBA sports prediction</title>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+  <link rel="stylesheet" href="myTeam.css">
+</head>
+<body>
+  <header>
+    <nav class="navbar navbar-dark bg-dark">
+      <a class="navbar-brand" href="#">NBA game predictor</a>
+      <button id="menu" class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav mr-auto">
+          <li class="nav-item active">
+            <a class="nav-link" href="/profile">Home<span class="sr-only">(current)</span></a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="/myteam">My Teams</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="/logout">Logout</a>
+          </li>
+        </ul>
+      </div>
+</nav>
+  </header>
+      <section class="container-fluid">
+        <h1>My Teams</h1>
+        <p>select two teams to match up</p>
+        <% for(var i=0; i<team.length; i++) {%>
+        <ul>
+          <li class="breadcrumb">
+            <span id="myTeamSelect"class="breadcrumb-item"><a href="#"><%= team[i].teamName %></a></span>
+            <ul id="viewPlayer" class="list-inline hidden">
+              <li class="list-inline-item"> <%= team[i].playerOne %> <img src="<%= team[i].playerOneImg %>"> </li>
+
+              <li class="list-inline-item"> <%= team[i].playerTwo %> <img src="<%= team[i].playerTwoImg %>"> </li>
+
+              <li class="list-inline-item"> <%= team[i].playerThree %> <img src="<%= team[i].playerThreeImg %>"> </li>
+
+              <li class="list-inline-item"> <%= team[i].playerFour %> <img src="<%= team[i].playerFourImg %>"> </li>
+
+              <li class="list-inline-item"> <%= team[i].playerFive %> <img src="<%= team[i].playerFiveImg %>"> </li>
+            </ul>
+          </li>
+
+        </ul>
+          <% } %>
+      </section>
+
+      <section class="container-fluid">
+      <a href="/prediction?teamOne=Clippers&teamTwo=RT+Gang"> <span id="prediction"class="btn btn-primary">see win prediction</span></a>
+      </section>
+
+</body>
+<script src="myTeams.js"></script>
+</html>

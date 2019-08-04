@@ -1,0 +1,19 @@
+body{
+  word-wrap:break-word;
+}
+img{
+  height: 200px;
+  width: 90%;
+}
+
+.selected{
+  border: 5px solid blue
+}
+
+.hidden{
+  display: none;
+}
+
+/* body{
+  background-image: url("img/wallpaper.png")
+} */
