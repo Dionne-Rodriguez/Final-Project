@@ -3,9 +3,10 @@ let seePlayers = document.querySelector('#players')
 let table = document.querySelectorAll('td')
 
 
-document.getElementById("menu").addEventListener('click', function(){
-  console.log("called")
+document.getElementById("menu").addEventListener('click', function(e){
+
 document.getElementById("navbarSupportedContent").classList.toggle("show")
+
 })
 
 document.getElementById('create').addEventListener('click', function(){
@@ -52,9 +53,18 @@ seePlayers.addEventListener('click', function() {
     element.classList.toggle("hidden")
   });
 })
-
+let counter = 5
 teams.forEach((currentClickElement,index) =>{
 currentClickElement.addEventListener('click',function(e){
+
+  console.log(counter)
+  if(currentClickElement.className === "selected"){
+      currentClickElement.className = "nonSelected"
+      counter += 1
+}
+  else if(counter > 0){
+    counter -= 1
   currentClickElement.className = "selected"
+}
   })
 })

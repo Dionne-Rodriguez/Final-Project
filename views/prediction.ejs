@@ -1,4 +1,4 @@
-<!doctype html>
+<!DOCTYPE html>
 <html>
 <head>
   <title>NBA sports prediction</title>
@@ -8,8 +8,7 @@
   <link rel="stylesheet" href="myTeam.css">
 </head>
 <body>
-  <header>
-    <nav class="navbar navbar-dark bg-dark">
+  <nav class="navbar navbar-dark bg-dark">
       <a class="navbar-brand" href="#">NBA game predictor</a>
       <button id="menu" class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
@@ -29,36 +28,13 @@
         </ul>
       </div>
 </nav>
-  </header>
-      <section class="container-fluid">
-        <h1>My Teams</h1>
-        <p>select two teams to match up</p>
-        <% for(var i=0; i<team.length; i++) {%>
-        <ul>
-          <li class="breadcrumb">
-            <span id="myTeamSelect"class="breadcrumb-item"><a href="#"><%= team[i].teamName %></a></span>
-            <ul id="viewPlayer" class="list-inline hidden">
-              <li class="list-inline-item"> <%= team[i].playerOne %> <img src="<%= team[i].playerOneImg %>"> </li>
+<span> <%= team[i].playerOne %> </span>
 
-              <li class="list-inline-item"> <%= team[i].playerTwo %> <img src="<%= team[i].playerTwoImg %>"> </li>
-
-              <li class="list-inline-item"> <%= team[i].playerThree %> <img src="<%= team[i].playerThreeImg %>"> </li>
-
-              <li class="list-inline-item"> <%= team[i].playerFour %> <img src="<%= team[i].playerFourImg %>"> </li>
-
-              <li class="list-inline-item"> <%= team[i].playerFive %> <img src="<%= team[i].playerFiveImg %>"> </li>
-            </ul>
-            <span><i class="fas fa-trash-alt"></i></span>
-          </li>
-
-        </ul>
-          <% } %>
-      </section>
-
-      <section class="container-fluid">
-      <a href=`/prediction?teamOne=${teamOne}&teamTwo=${teamTwo}` id="predictionLink"> <span id="prediction"class="btn btn-primary">see win prediction</span></a>
-      </section>
-
+<canvas id="canvas" width="300" height="300"></canvas>
+<section class="container-fluid">
+  <h1>Prediction</h1>
+</section>
 </body>
-<script src="myTeams.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.8.0/Chart.bundle.min.js"></script>
+<script src="prediction.js"></script>
 </html>

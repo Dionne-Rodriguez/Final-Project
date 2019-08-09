@@ -1,4 +1,4 @@
-module.exports = function(app, passport, db) {
+module.exports = function (app, passport, db, ObjectId) {
 
   // normal routes ===============================================================
 
@@ -9,6 +9,7 @@ module.exports = function(app, passport, db) {
 
   // Create a Team SECTION =========================
   app.get('/profile', isLoggedIn, function(req, res) {
+    console.log(req.session.passport.user)
     db.collection('user').find().toArray((err, result) => {
       if (err) return console.log(err)
       res.render('profile.ejs', {
@@ -20,7 +21,8 @@ module.exports = function(app, passport, db) {
 
   // My teams section
   app.get('/myteam', isLoggedIn, function(req, res) {
-    db.collection('Teams').find().toArray((err, result) => {
+    const userId = req.session.passport.user
+    db.collection('Teams').find({userId:userId}).toArray((err, result) => {
       console.log(req.user)
       if (err) return console.log(err)
       res.render('myTeams.ejs', {
@@ -32,7 +34,7 @@ module.exports = function(app, passport, db) {
 
   //Predict Point Spread
 
-  app.get('/predict', function(req,res){
+  app.get("/prediction", function(req,res){
     const teamOne = req.query.teamOne
     const teamTwo = req.query.teamTwo
     //get player names from mongodb
@@ -40,6 +42,7 @@ module.exports = function(app, passport, db) {
     db.collection('Teams').findOne({teamName: teamOne},(err, teamOnePlayers) => {
       db.collection('Teams').findOne({teamName: teamTwo},(err, teamTwoPlayers) => {
         const prediction =  Math.random() * 30 - 15
+        console.log(prediction, teamOne, teamOnePlayers)
         res.render('prediction.ejs', {
           teamOnePlayers: teamOnePlayers,
           teamTwoPlayers: teamTwoPlayers,
@@ -60,30 +63,33 @@ module.exports = function(app, passport, db) {
   // message board routes ===============================================================
 
   app.post('/team', (req, res) => {
-    db.collection('Teams').save({teamName: req.body.teamName, playerOne: req.body.playerOne, playerOneImg: req.body.playerOneImg, playerTwo: req.body.playerTwo, playerTwoImg: req.body.playerTwoImg, playerThree: req.body.playerThree, playerThreeImg: req.body.playerThreeImg, playerFour: req.body.playerFour, playerFourImg: req.body.playerFourImg, playerFive: req.body.playerFive, playerFiveImg: req.body.playerFiveImg}, (err, result) => {
+    const userId = req.session.passport.user
+    console.log(userId)
+    db.collection('Teams').save({userId:userId,teamName: req.body.teamName, playerOne: req.body.playerOne, playerOneImg: req.body.playerOneImg, playerTwo: req.body.playerTwo, playerTwoImg: req.body.playerTwoImg, playerThree: req.body.playerThree, playerThreeImg: req.body.playerThreeImg, playerFour: req.body.playerFour, playerFourImg: req.body.playerFourImg, playerFive: req.body.playerFive, playerFiveImg: req.body.playerFiveImg}, (err, result) => {
       if (err) return console.log(err)
       console.log('saved to database')
       res.redirect('/profile')
     })
   })
+  //
+  // app.put('/messages', (req, res) => {
+  //   db.collection('messages')
+  //   .findOneAndUpdate({name: req.body.name, msg: req.body.msg}, {
+  //     $set: {
+  //       thumbUp:req.body.thumbUp + 1
+  //     }
+  //   }, {
+  //     sort: {_id: -1},
+  //     upsert: true
+  //   }, (err, result) => {
+  //     if (err) return res.send(err)
+  //     res.send(result)
+  //   })
+  // })
 
-  app.put('/messages', (req, res) => {
-    db.collection('messages')
-    .findOneAndUpdate({name: req.body.name, msg: req.body.msg}, {
-      $set: {
-        thumbUp:req.body.thumbUp + 1
-      }
-    }, {
-      sort: {_id: -1},
-      upsert: true
-    }, (err, result) => {
-      if (err) return res.send(err)
-      res.send(result)
-    })
-  })
-
-  app.delete('/messages', (req, res) => {
-    db.collection('messages').findOneAndDelete({name: req.body.name, msg: req.body.msg}, (err, result) => {
+  app.delete('/teams', (req, res) => {
+    console.log(req.body.teamName)
+    db.collection('Teams').findOneAndDelete({teamName:req.body.teamName}, (err, result) => {
       if (err) return res.send(500, err)
       res.send('Message deleted!')
     })
