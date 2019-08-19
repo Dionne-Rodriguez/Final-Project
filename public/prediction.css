@@ -1,6 +1,10 @@
+html{
+  height: 1000px;
+}
+
 .breadcrumb{
   width: 35%;
-  margin: 7%;
+  margin: 4%;
   margin-top: 20px;
   float: left;
   height: 500px;
@@ -17,5 +21,15 @@ width: 100%;
 text-align: center;
 height: 0;
 font-size: 4rem
+}
 
+.scoreSec{
+  width: 100%;
+  font-size: 2rem;
+  text-align: center;
+  display: inline-block;
+}
+
+.breadcrumb{
+transition: 2s ease-in-out;
 }

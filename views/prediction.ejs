@@ -41,11 +41,12 @@
   <section>
   <h1>Prediction</h1>
   <% if (prediction) { %>
+
   </section>
     <ul>
-      <li class="breadcrumb">
-        <h2 class="breadcrumb-item"><%= teamOne.teamName %></h2>
-        <img class="teamIcon" src= "/<%= teamOne.teamIcon %>" alt="">
+      <li id ="teamOne" class="breadcrumb">
+        <h2 id="teamOneName"class="breadcrumb-item"><%= teamOne.teamName %></h2>
+        <img class="teamIcon" src= "<%= teamOne.teamIcon %>" alt="">
       </li>
     </ul>
   <% } %>
@@ -54,15 +55,26 @@
   <% if (prediction) { %>
 
     <ul>
-      <li class="breadcrumb">
-        <h2 class="breadcrumb-item"><%= teamTwo.teamName %></h2>
-        <img class="teamIcon" src= "/<%= teamTwo.teamIcon %>" alt="">
+      <li id ="teamTwo" class="breadcrumb">
+        <h2 id="teamTwoName"class="breadcrumb-item"><%= teamTwo.teamName %></h2>
+        <img class="teamIcon teamTwo" src= "<%= teamTwo.teamIcon %>" alt="">
       </li>
     </ul>
   <% } %>
+
+
   <div id="loader-wrapper">
     <div id="loader"></div>
 </section>
+
+<section class="scoreSec">
+  <span>The winner is</span>
+  <span id="winner"></span>
+  <span>by</span>
+  <span id="score"><%= prediction %></span>
+  <span>PTS</span>
+</section>
+
 </body>
 </div>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.8.0/Chart.bundle.min.js"></script>
