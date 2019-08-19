@@ -2,18 +2,19 @@
 <html>
 <head>
   <title>NBA sports prediction</title>
+  <link rel="icon" type="image/png" sizes="16x16" href="/img/favicon.ico">
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
-  <link rel="stylesheet" href="style.css">
+
+  <link rel="stylesheet" href="/style.css">
 </head>
 <body>
   <header>
-    <nav class="navbar navbar-dark bg-dark">
-      <a class="navbar-brand" href="#">NBA game predictor</a>
+    <nav id="navHud" class="navbar navbar-dark">
+
       <button id="menu" class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
-
+      <a class="navbar-brand" href="#"><img id="logo"src="/img/HD.png"</a>
       <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <ul class="navbar-nav mr-auto">
           <li class="nav-item active">
@@ -28,32 +29,27 @@
         </ul>
       </div>
 </nav>
-    <!-- <nav class="navbar navbar-expand-lg navbar-light bg-light">
-      <a class="navbar-brand" href="#">NBA game predictor</a>
-      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-      </button>
-
-      <div class="collapse navbar-collapse" id="navbarSupportedContent">
-        <ul class="navbar-nav mr-auto">
-          <li class="nav-item active">
-            <a class="nav-link" href="/profile">Home<span class="sr-only">(current)</span></a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="/myteam">My Teams</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="/logout">Logout</a>
-          </li>
-        </ul>
-      </div>
-    </nav> -->
   </header>
+  <section id="slide">
+  <span class="intro js-scroll-trigger">Welcome</span>
+  </section>
+  <section class="container-fluid introSec">
 
-  <section class="container-fluid text-center">
+
+    <video autoplay muted loop id="myVideo">
+  <source src="/NBA.mp4" type="video/mp4">
+    </video>
+
+    <div id="content">
+  <p class="decription">Hoop Dreams is an online NBA sports prediction model. Build your own fantasy team and but them up against each other. To create your team scroll down and enter a team name and select your five players</p>
+  </div>
+  </section>
+
+
+  <section id="teamSec" class="container-fluid text-center">
     <h1 class="">Create your teams</h1>
     <p class="">Set up a team name and then click select players to build your team! </p>
-    <form action = "/team" method="Post">
+    <!-- <form> -->
   <div class="form-group row">
     <label class="col-sm-2 col-form-label">Team Name</label>
     <div class="col-sm-10">
@@ -61,58 +57,76 @@
     </div>
   </div>
   <span id="players" type"click" class="btn btn-primary">Select players</span>
+    <button id="create" type="click" class="btn btn-primary hidden">Create Team</button>
+
+    <section class="popUp">
+      <h3>Select your team icon</h3>
+      <img id="test"class="teamIcon"src="/img/teamIcon.png" alt="">
+      <img class="teamIcon"src="/img/teamIcon.png" alt="">
+      <img class="teamIcon"src="/img/teamIcon.png" alt="">
+      <img class="teamIcon"src="/img/teamIcon.png" alt="">
+      <img class="teamIcon"src="/img/teamIcon.png" alt="">
+      <img class="teamIcon"src="/img/teamIcon.png" alt="">
+      <img class="teamIcon"src="/img/teamIcon.png" alt="">
+      <img class="teamIcon"src="/img/teamIcon.png" alt="">
+
+      <button type="button" id="done" class="btn btn-primary"name="button">Done</button>
+    </section>
+
     <table class="table table-bordered">
       <tbody>
         <tr>
-          <td class="nonSelected hidden" data-name= "Klay Thompson"><img src="img/thomson.png"></td>
-          <td class="nonSelected hidden" data-name= "Lebron James"><img src="img/lebron.png"></td>
-          <td class="nonSelected hidden" data-name= "Kevin Durant"><img src="img/Durant.png"></td>
-          <td class="nonSelected hidden" data-name= "Stephen Curry"><img src="img/curry.png"></td>
-          <td class="nonSelected hidden" data-name= "Russell Westbrook"><img src="img/russelWestbrooke.png"></td>
+          <td class="nonSelected hidden textOverImage" data-text="Best three point shooter in the league" data-name= "Klay Thompson"><img src="/img/thomson.png"></td>
+          <td class="nonSelected hidden textOverImage" data-text="Best three point shooter in the league" data-name= "Lebron James"><img src="/img/lebron.png"></td>
+          <td class="nonSelected hidden textOverImage" data-text="Best three point shooter in the league" data-name= "Kevin Durant"><img src="/img/Durant.png"></td>
+          <td class="nonSelected hidden textOverImage" data-text="Best three point shooter in the league" data-name= "Stephen Curry"><img src="/img/curry.png"></td>
+          <td class="nonSelected hidden textOverImage" data-text="Best three point shooter in the league" data-name= "Russell Westbrook"><img src="/img/russelWestbrooke.png"></td>
         </tr>
         <tr>
-          <td class="nonSelected hidden" data-name= "Damian Lillard"><img src="img/lillard.png"></td>
-          <td class="nonSelected hidden" data-name= "Kawhi Leonard"><img src="img/leonard.png"></td>
-          <td class="nonSelected hidden" data-name= "CJ Mccollum"><img src="img/CJ.png"></td>
-          <td class="nonSelected hidden" data-name= "Demarcus Cousins"><img src="img/cousins.png"></td>
-          <td class="nonSelected hidden" data-name= "Giannis Antetokounmpo"><img src="img/greekFreak.png"></td>
+          <td class="nonSelected hidden textOverImage" data-text="Best three point shooter in the league" data-name= "Damian Lillard"><img src="/img/lillard.png"></td>
+          <td class="nonSelected hidden textOverImage" data-text="Best three point shooter in the league" data-name= "Kawhi Leonard"><img src="/img/leonard.png"></td>
+          <td class="nonSelected hidden textOverImage" data-text="Best three point shooter in the league" data-name= "CJ Mccollum"><img src="/img/CJ.png"></td>
+          <td class="nonSelected hidden textOverImage" data-text="Best three point shooter in the league" data-name= "Kobe Bryant"><img src="/img/Kobe.png"></td>
+          <td class="nonSelected hidden textOverImage" data-text="Best three point shooter in the league" data-name= "Giannis Antetokounmpo"><img src="/img/greekFreak.png"></td>
         </tr>
         <tr>
-          <td class="nonSelected hidden" data-name= "Danny Green"><img src="img/green.png"></td>
-          <td class="nonSelected hidden" data-name= "Blake Griffin"><img src="img/griffin.png"></td>
-          <td class="nonSelected hidden" data-name= "James Harden"><img src="img/harden.png"></td>
-          <td class="nonSelected hidden" data-name= "Kyrie Irving"><img src="img/iriving.png"></td>
-          <td class="nonSelected hidden" data-name= "Derrick Rose"><img src="img/rose.png"></td>
+          <td class="nonSelected hidden textOverImage" data-text="Best three point shooter in the league" data-name= "Danny Green"><img src="/img/green.png"></td>
+          <td class="nonSelected hidden textOverImage" data-text="Best three point shooter in the league" data-name= "Blake Griffin"><img src="/img/griffin.png"></td>
+          <td class="nonSelected hidden textOverImage" data-text="Best three point shooter in the league" data-name= "James Harden"><img src="/img/harden.png"></td>
+          <td class="nonSelected hidden textOverImage" data-text="Best three point shooter in the league" data-name= "Kyrie Irving"><img src="/img/iriving.png"></td>
+          <td class="nonSelected hidden textOverImage" data-text="Best three point shooter in the league" data-name= "Derrick Rose"><img src="/img/rose.png"></td>
         </tr>
         <tr>
-          <td class="nonSelected hidden" data-name= "John Wall"><img src="img/wall.png"></td>
-          <td class="nonSelected hidden" data-name= "Joel Embiid"><img src="img/embiid.png"></td>
-          <td class="nonSelected hidden" data-name= "Paul George"><img src="img/george.png"></td>
-          <td class="nonSelected hidden" data-name= "Al Horford"><img src="img/horford.png"></td>
-          <td class="nonSelected hidden" data-name= "Kyle Lowry"><img src="img/lowry.png"></td>
+          <td class="nonSelected hidden textOverImage" data-text="Best three point shooter in the league" data-name= "John Wall"><img src="/img/wall.png"></td>
+          <td class="nonSelected hidden textOverImage" data-text="Best three point shooter in the league" data-name= "Ray Allen"><img src="/img/Ray.png"></td>
+          <td class="nonSelected hidden textOverImage" data-text="Best three point shooter in the league" data-name= "Paul George"><img src="/img/george.png"></td>
+          <td class="nonSelected hidden textOverImage" data-text="Best three point shooter in the league" data-name= "Al Horford"><img src="/img/horford.png"></td>
+          <td class="nonSelected hidden textOverImage" data-text="Best three point shooter in the league" data-name= "Kyle Lowry"><img src="/img/lowry.png"></td>
         </tr>
         <tr>
-          <td class="nonSelected hidden" data-name= "Patrick Beverley"><img src="img/bev.png"></td>
-          <td class="nonSelected hidden" data-name= "Marc Gasol"><img src="img/gasol.png"></td>
-          <td class="nonSelected hidden" data-name= "Dwight Howard"><img src="img/howard.png"></td>
-          <td class="nonSelected hidden" data-name= "Serge Ibaka"><img src="img/ibaka.png"></td>
-          <td class="nonSelected hidden" data-name= "Kevin Love"><img src="img/love.png"></td>
+          <td class="nonSelected hidden textOverImage" data-text="Best three point shooter in the league" data-name= "Anthony Davis"><img src="/img/davis.png"></td>
+          <td class="nonSelected hidden textOverImage" data-text="Best three point shooter in the league" data-name= "Marc Gasol"><img src="/img/gasol.png"></td>
+          <td class="nonSelected hidden textOverImage" data-text="Best three point shooter in the league" data-name= "Dwight Howard"><img src="/img/howard.png"></td>
+          <td class="nonSelected hidden textOverImage" data-text="Best three point shooter in the league" data-name= "Serge Ibaka"><img src="/img/ibaka.png"></td>
+          <td class="nonSelected hidden textOverImage" data-text="Best three point shooter in the league" data-name= "Kevin Love"><img src="/img/love.png"></td>
         </tr>
         <tr>
-          <td class="nonSelected hidden" data-name= "Ricky Rubio"><img src="img/rubio.png"></td>
-          <td class="nonSelected hidden" data-name= "Andre Iguodala"><img src="img/andre.png"></td>
-          <td class="nonSelected hidden" data-name= "Jeff Green"><img src="img/jeff.png"></td>
-          <td class="nonSelected hidden" data-name= "Pau Gasol"><img src="img/pau.png"></td>
-          <td class="nonSelected hidden" data-name= "JaVale McGee"><img src="img/mcgee.png"></td>
+          <td class="nonSelected hidden textOverImage" data-text="Best three point shooter in the league" data-name= "Kevin Garnett"><img src="/img/Garnet.png"></td>
+          <td class="nonSelected hidden textOverImage" data-text="Best three point shooter in the league" data-name= "Andre Iguodala"><img src="/img/andre.png"></td>
+          <td class="nonSelected hidden textOverImage" data-text="Best three point shooter in the league" data-name= "Jeff Green"><img src="/img/jeff.png"></td>
+          <td class="nonSelected hidden textOverImage" data-text="Best three point shooter in the league" data-name= "Pau Gasol"><img src="/img/pau.png"></td>
+          <td class="nonSelected hidden textOverImage" data-text="Best three point shooter in the league" data-name= "Nate Robinson"><img src="/img/nate.png"></td>
         </tr>
       </tbody>
     </table>
-    </form>
-    <button id="create" type="click" class="btn btn-primary hidden">Create Team</button>
+    <!-- </form> -->
   </section>
+  <div id="loader-wrapper">
+    <div id="loader"></div>
 
-  <script src="main.js"></script>
+  <script src="/main.js"></script>
 
 </body>
+</div>
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
 </html>

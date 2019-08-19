@@ -1,0 +1,21 @@
+.breadcrumb{
+  width: 35%;
+  margin: 7%;
+  margin-top: 20px;
+  float: left;
+  height: 500px;
+}
+
+.teamIcon{
+width: 65%;
+    height: 330px;
+    margin: auto;
+}
+
+h2{
+width: 100%;
+text-align: center;
+height: 0;
+font-size: 4rem
+
+}

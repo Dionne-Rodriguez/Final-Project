@@ -1,40 +1,71 @@
 <!DOCTYPE html>
+
 <html>
+
 <head>
   <title>NBA sports prediction</title>
+  <link rel="icon" type="image/png" sizes="16x16" href="/img/favicon.ico">
   <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css">
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
-  <link rel="stylesheet" href="myTeam.css">
+  <link rel="stylesheet" href="/myTeam.css">
+  <link rel="stylesheet" href="/prediction.css">
+
 </head>
+
+
+
 <body>
-  <nav class="navbar navbar-dark bg-dark">
-      <a class="navbar-brand" href="#">NBA game predictor</a>
-      <button id="menu" class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-      </button>
+  <nav id="navHud" class="navbar navbar-dark">
 
-      <div class="collapse navbar-collapse" id="navbarSupportedContent">
-        <ul class="navbar-nav mr-auto">
-          <li class="nav-item active">
-            <a class="nav-link" href="/profile">Home<span class="sr-only">(current)</span></a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="/myteam">My Teams</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="/logout">Logout</a>
-          </li>
-        </ul>
-      </div>
+    <button id="menu" class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <a class="navbar-brand" href="#"><img id="logo"src="/img/HD.png"</a>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav mr-auto">
+        <li class="nav-item active">
+          <a class="nav-link" href="/profile">Home<span class="sr-only">(current)</span></a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="/myteam">My Teams</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="/logout">Logout</a>
+        </li>
+      </ul>
+    </div>
 </nav>
-<span> <%= team[i].playerOne %> </span>
 
-<canvas id="canvas" width="300" height="300"></canvas>
 <section class="container-fluid">
+  <section>
   <h1>Prediction</h1>
+  <% if (prediction) { %>
+  </section>
+    <ul>
+      <li class="breadcrumb">
+        <h2 class="breadcrumb-item"><%= teamOne.teamName %></h2>
+        <img class="teamIcon" src= "/<%= teamOne.teamIcon %>" alt="">
+      </li>
+    </ul>
+  <% } %>
+
+
+  <% if (prediction) { %>
+
+    <ul>
+      <li class="breadcrumb">
+        <h2 class="breadcrumb-item"><%= teamTwo.teamName %></h2>
+        <img class="teamIcon" src= "/<%= teamTwo.teamIcon %>" alt="">
+      </li>
+    </ul>
+  <% } %>
+  <div id="loader-wrapper">
+    <div id="loader"></div>
 </section>
 </body>
+</div>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.8.0/Chart.bundle.min.js"></script>
-<script src="prediction.js"></script>
+<script src="/prediction.js"></script>
+
 </html>

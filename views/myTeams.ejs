@@ -2,19 +2,20 @@
 <html>
 <head>
   <title>NBA sports prediction</title>
+  <link rel="icon" type="image/png" sizes="16x16" href="/img/favicon.ico">
   <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css">
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
-  <link rel="stylesheet" href="myTeam.css">
+  <link rel="stylesheet" href="/myTeam.css">
 </head>
 <body>
   <header>
-    <nav class="navbar navbar-dark bg-dark">
-      <a class="navbar-brand" href="#">NBA game predictor</a>
+    <nav id="navHud" class="navbar navbar-dark">
+
       <button id="menu" class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
-
+      <a class="navbar-brand" href="/"><img id="logo"src="/img/HD.png"</a>
       <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <ul class="navbar-nav mr-auto">
           <li class="nav-item active">
@@ -31,12 +32,15 @@
 </nav>
   </header>
       <section class="container-fluid">
+        <section>
         <h1>My Teams</h1>
-        <p>select two teams to match up</p>
+        <p class="describe">select two teams to match up</p>
+        </section>
         <% for(var i=0; i<team.length; i++) {%>
         <ul>
           <li class="breadcrumb">
-            <span id="myTeamSelect"class="breadcrumb-item"><a href="#"><%= team[i].teamName %></a></span>
+            <span id="myTeamSelect"class="breadcrumb-item" contenteditable="false"><%= team[i].teamName %></span>
+
             <ul id="viewPlayer" class="list-inline hidden">
               <li class="list-inline-item"> <%= team[i].playerOne %> <img src="<%= team[i].playerOneImg %>"> </li>
 
@@ -48,7 +52,17 @@
 
               <li class="list-inline-item"> <%= team[i].playerFive %> <img src="<%= team[i].playerFiveImg %>"> </li>
             </ul>
-            <span><i class="fas fa-trash-alt"></i></span>
+            <button type="button" class="hidden">Submit</button>
+            <div class="dropdown">
+  <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenu" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+  </button>
+  <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+    <span class="dropdown-item edit"> Edit team name</span>
+    <span class="dropdown-item delete" >Delete team</span>
+  </div>
+</div>
+
+
           </li>
 
         </ul>
@@ -56,9 +70,9 @@
       </section>
 
       <section class="container-fluid">
-      <a href=`/prediction?teamOne=${teamOne}&teamTwo=${teamTwo}` id="predictionLink"> <span id="prediction"class="btn btn-primary">see win prediction</span></a>
+      <a  id="predictionLink"> <span id="prediction"class="btn btn-primary">see win prediction</span></a>
       </section>
 
 </body>
-<script src="myTeams.js"></script>
+<script src="/myTeams.js"></script>
 </html>

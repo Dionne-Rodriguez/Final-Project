@@ -2,6 +2,11 @@
 
 // set up ======================================================================
 // get all the tools we need
+
+if (process.env.NODE_ENV !== 'production') {
+ require('dotenv').config();
+}
+
 var express  = require('express');
 var app      = express();
 var port     = process.env.PORT || 8080;
@@ -10,6 +15,7 @@ var mongoose = require('mongoose');
 var passport = require('passport');
 var flash    = require('connect-flash');
 var ObjectId = require('mongodb').ObjectID;
+const fetch = require('node-fetch');
 
 
 var morgan       = require('morgan');
@@ -25,7 +31,7 @@ var db
 mongoose.connect(configDB.url, (err, database) => {
   if (err) return console.log(err)
   db = database
-  require('./app/routes.js')(app, passport, db, ObjectId);
+  require('./app/routes.js')(app, passport, db, ObjectId,fetch);
 }); // connect to our database
 
 //app.listen(port, () => {
@@ -52,7 +58,7 @@ app.set('view engine', 'ejs'); // set up ejs for templating
 
 // required for passport
 app.use(session({
-    secret: 'rcbootcamp2019a', // session secret
+    secret: 'rcbootcamp2019b', // session secret
     resave: true,
     saveUninitialized: true
 }));
