@@ -53,7 +53,7 @@ Array.from(edit).forEach(function(currentClickElement){
 
 Array.from(trash).forEach(function(element) {
   element.addEventListener('click', function(){
-    const teamName = this.parentNode.parentNode.parentNode.childNodes[1].innerTextr
+    const teamName = this.parentNode.parentNode.parentNode.childNodes[1].innerText
     console.log(teamName);
     fetch('teams', {
       method: 'delete',
