@@ -26,14 +26,16 @@ body{
 
 #slide{
   background-color: lightgrey;
-width: 35%;
+width: 29%;
 position: fixed;
 left: -35%;
 transition: .5s ease-in-out;
 z-index: 1;
 }
 .intro{
+  margin-left: 5%;
   font-size: 3rem;
+  word-spacing: .2rem
 }
 
 
@@ -111,6 +113,7 @@ backface-visibility: hidden;
     padding-right: 0;
     padding-left: 0;
     margin-top: 8px;
+    margin-left: 2%;
     font-size: 1.1rem;
 }
 

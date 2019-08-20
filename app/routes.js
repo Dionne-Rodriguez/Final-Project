@@ -15,11 +15,11 @@ module.exports = function (app, passport, db, ObjectId,fetch) {
     let userEmail = req.user.local.email
     console.log("this is the request", req.user.local.email)
     db.collection('user').find({'_id':userEmail}).toArray((err, result) => {
-      console.log("this is the response",result)
+      console.log("this is the response",req.user.local.userName)
       if (err) return console.log(err)
 
       res.render('profile.ejs', {
-        user : req.user,
+        user : req.user.local.userName,
         messages: result
       })
     })

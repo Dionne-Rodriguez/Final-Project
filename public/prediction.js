@@ -8,6 +8,7 @@ let teamOne = document.getElementById('teamOneName').innerText
 let teamTwo = document.getElementById('teamTwoName').innerText
 let finalScore = document.getElementById('score').innerText
 let numScore = parseInt(finalScore)
+numScore = Math.abs(numScore)
 if (finalScore > 0) {
   document.getElementById('winner').innerHTML = teamOne
   document.getElementById('teamOne').style.backgroundColor = "green"
