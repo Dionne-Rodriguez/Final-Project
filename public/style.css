@@ -25,7 +25,7 @@ body{
 }
 
 #slide{
-  background-color: lightgrey;
+  background-color: dodgerblue;
 width: 29%;
 position: fixed;
 left: -35%;
@@ -35,7 +35,8 @@ z-index: 1;
 .intro{
   margin-left: 5%;
   font-size: 3rem;
-  word-spacing: .2rem
+  word-spacing: .2rem;
+  color:white
 }
 
 
@@ -57,7 +58,7 @@ z-index: 1;
   height: 800px
 }
 
-#teamSec p{
+#teamSec p:nth-child(3){
   margin: 2%;
   margin-bottom: 65px;
 }
@@ -74,7 +75,7 @@ z-index: 1;
   width: 57%;
   margin-top: 250px;
   font-family: 'Anton', sans-serif;
-  color: lightgrey;
+  color: whitesmoke;
 }
 
 
@@ -149,9 +150,9 @@ backface-visibility: hidden;
 }
 
 .popUp{
-  background-color: lightslategrey;
+background-color: whitesmoke;
   height: 500px;
-  top: auto;
+  top: 1150px;
   position: absolute;
   z-index: 1;
   display: none;
@@ -180,6 +181,10 @@ width: 20%;
 .textOverImage:hover:after{
   opacity: 1;
   top:0;
+}
+
+.textOverImage[data-text]{
+  font-size: 1.2rem
 }
 
 
@@ -280,4 +285,19 @@ width: 20%;
   100% { -webkit-transform: rotate(360deg);  /* Chrome, Opera      15+, Safari 3.1+ */
      -ms-transform: rotate(360deg);  /* IE 9 */
      transform: rotate(360deg);  /* Firefox 16+, IE 10+, Opera */ }
+}
+
+
+
+@media (min-width : 768px) and (max-width : 1024px)  {
+    #content{
+      height: 555px;
+  }
+  .decription{
+    margin-top: 25px;
+  }
+}
+
+@media only screen and (max-width: 767px) {
+
 }

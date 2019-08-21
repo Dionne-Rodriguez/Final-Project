@@ -932,7 +932,6 @@ app.put('/userteams', (req, res) => {
       db.collection('Teams').findOne({teamName: teamTwo},(err, teamTwoResult) => {
         const values = bodyTemplate.Inputs.input1.Values[0]
         values.fill(0)
-        const prediction =  Math.random() * 30 - 15
         //team one players pushed to an array
         teamOnePlayers.push(teamOneResult.playerOne)
         teamOnePlayers.push(teamOneResult.playerTwo)

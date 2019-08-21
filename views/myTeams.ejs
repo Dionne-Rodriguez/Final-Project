@@ -39,7 +39,7 @@
         <% for(var i=0; i<team.length; i++) {%>
         <ul>
           <li class="breadcrumb">
-            <span id="myTeamSelect"class="breadcrumb-item" contenteditable="false"><%= team[i].teamName %></span>
+            <span id="myTeamSelect"class="breadcrumb-item" contenteditable="false"><a href="#"><%= team[i].teamName %></a></span>
 
             <ul id="viewPlayer" class="list-inline hidden">
               <li class="list-inline-item"> <%= team[i].playerOne %> <img src="<%= team[i].playerOneImg %>"> </li>

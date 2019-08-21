@@ -101,12 +101,6 @@ currentClickElement.addEventListener('click',function(e){
 
 let teamIcons = document.querySelectorAll(".teamIcon")
 
-//select team icon
-// teamIcons.addEventListener("click",function(e){
-//   e.forEach((currentClickElement) => {
-//       console.log('test');
-//   })
-// })
 let iconCounter = 0
 teamIcons.forEach(function(currentClickElement) {
   currentClickElement.addEventListener("click", function(e){
