@@ -9,6 +9,9 @@ height: 100%;
 font-family: 'Numans', sans-serif;
 }
 
+.signIn{
+  margin-left: 10%;
+}
 
 #logo{
   width: 20%;
