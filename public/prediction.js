@@ -1,3 +1,4 @@
+
 document.getElementById("menu").addEventListener('click', function(){
 document.getElementById("navbarSupportedContent").classList.toggle("show")
 })
@@ -7,12 +8,14 @@ window.addEventListener('load', function(){
 let teamOne = document.getElementById('teamOneName').innerText
 let teamTwo = document.getElementById('teamTwoName').innerText
 let finalScore = document.getElementById('score').innerText
+//manipulating the point spread snt from Azure
 let numScore = parseInt(finalScore)
 console.log("parseInt",numScore);
 numScore = Math.ceil(numScore)
 console.log("Math.ceil",numScore);
 numScore = Math.abs(numScore)
 console.log("Math.abs",numScore);
+//logic for showing the winner
 if (finalScore > 0) {
   document.getElementById('winner').innerHTML = teamOne
   document.getElementById('teamOne').style.backgroundColor = "green"

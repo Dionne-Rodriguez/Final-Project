@@ -20,15 +20,17 @@ teamOptions.forEach(function(currentClickElement){
 //edit
 
 Array.from(edit).forEach(function(currentClickElement){
+  //looking for the old team name
   var teamNameText = currentClickElement.parentNode.parentNode.parentNode.childNodes[1].innerText
   var newTeamName;
   currentClickElement.addEventListener('click', function(){
-
+    //find the submit button in the node tree
     var submitEdit = this.parentNode.parentNode.parentNode.childNodes[5]
+    //find the span element that has the team name text
     this.parentNode.parentNode.parentNode.childNodes[1].setAttribute("contenteditable", true)
     submitEdit.classList.toggle("hidden")
     submitEdit.addEventListener('click', function(e){
-      newTeamName =this.parentNode.parentNode.childNodes[1].childNodes[1].innerText
+      newTeamName = this.parentNode.parentNode.childNodes[1].childNodes[1].innerText
       console.log("old Team", teamNameText, "new Team", newTeamName);
       console.log(teamNameText)
       fetch('userteams', {
@@ -69,6 +71,7 @@ Array.from(trash).forEach(function(element) {
   });
 });
 
+//navbar
 document.getElementById("menu").addEventListener('click', function(){
   document.getElementById("navbarSupportedContent").classList.toggle("show")
 })
@@ -82,8 +85,9 @@ myTeamSelect.forEach((currentClickElement,index) => {
   currentClickElement.addEventListener('click', function (e){
     var editContent = currentClickElement.getAttribute("contenteditable")
     if (editContent == "false") {
+      //finding the element to toggle the class
       currentClickElement.nextElementSibling.classList.toggle("hidden")
-      console.log("content is editable")
+      console.log("show", counter)
     }
 
     if(currentClickElement.className === "selectedTeam"){

@@ -1,5 +1,5 @@
 node_modules
-config
+*config
 machineLearning.js
 .env
 npm-debug.log

@@ -7,8 +7,6 @@ let table = document.querySelectorAll('td')
 window.addEventListener('load',function(){
   setTimeout(function(){ document.querySelector('#slide').style.left = "0%" }, 2000);
   setTimeout(function(){ document.querySelector('#slide').style.left = "-35%" }, 4000);
-
-
 })
 
 
@@ -29,12 +27,12 @@ document.querySelector('#content').style.top = '323px'
 
 })
 
+//shows all the players
 document.getElementById('create').addEventListener('click', function(e){
-
   document.querySelector('.popUp').style.display = "block"
 })
 
-
+//sends the players
 document.getElementById('done').addEventListener("click", function(e){
   e.preventDefault()
 let selectedIcon = document.querySelector(".iconSelected").src
@@ -67,7 +65,7 @@ let selectedIcon = document.querySelector(".iconSelected").src
       'playerFiveImg': playerImg[4]
     })
   }).then(data => {
-    console.log("TAYE",data)
+    console.log("response" ,data)
     window.location.reload(true)
   })
 })

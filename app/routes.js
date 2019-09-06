@@ -19,8 +19,8 @@ module.exports = function (app, passport, db, ObjectId,fetch) {
       if (err) return console.log(err)
 
       res.render('profile.ejs', {
-        user : req.user.local.userName,
-        messages: result
+        //renders the user name and
+        user : req.user.local.userName
       })
     })
   });
@@ -56,13 +56,6 @@ app.put('/userteams', (req, res) => {
   })
 })
 
-
-
-  //Predict Point Spread
-  //function for getting player id
-  // function getPlayerId(names){
-  //
-  // }
 
   const getPlayerId = {};
   getPlayerId['Ray Allen'] = 66;
@@ -946,6 +939,7 @@ app.put('/userteams', (req, res) => {
         teamTwoPlayers.push(teamTwoResult.playerFour)
         teamTwoPlayers.push(teamTwoResult.playerFive)
 
+        //looping through the array of players and assigning a player ID
         teamOnePlayers.forEach(function(name){
           let playerId = getPlayerId[name];
           console.log("the Id for", name, "is", playerId)
@@ -956,6 +950,7 @@ app.put('/userteams', (req, res) => {
           console.log("the Id for", name, "is", playerId)
           values[playerId + 3 + 200] = 30;
         })
+
         fetch('https://ussouthcentral.services.azureml.net/workspaces/0c9abdb29d054db49d70577568da4823/services/d876d3f3734b4bc5a76c6a286ab09178/execute?api-version=2.0&details=true', {
            method: 'post',
            headers:{
